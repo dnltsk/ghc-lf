@@ -46,9 +46,9 @@ public class LfProcessor {
                         bestNext = candidateNext;
                         bestScore = score;
                     }
-                    if (score >= current.getTags().size()) break;
+                    if (score >= current.getTags().size()/2) break;
                 }
-                if (bestScore >= current.getTags().size()) break;
+                if (bestScore >= current.getTags().size()/2) break;
             }
             current = bestNext;
         }
