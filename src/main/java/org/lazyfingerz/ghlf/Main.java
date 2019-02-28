@@ -1,6 +1,6 @@
 package org.lazyfingerz.ghlf;
 
-public class GhlfApplication {
+public class Main {
 
 	public static void main(String[] args){
 		System.out.println("Hallo Welt!");
