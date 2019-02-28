@@ -11,17 +11,20 @@ import java.util.stream.Collectors;
 
 public class LfProcessor {
 
-    public List<LfSlide> process(Map<String, List<LfSlide>> map) {
+    public List<LfSlide> process(Map<String, List<LfSlide>> map, List<LfSlide> inputSlides) {
 
         ScoreCalculator scoreCalculator = new ScoreCalculator();
 
         List<LfSlide> slideshow = new ArrayList<>(4096);
 
-        LfSlide current = getFirstSlide(map);
+        LfSlide current = getFirstSlide(inputSlides);
 
         //TODO: size should be total amount of remaining slides
-        while (current != null) {
+        while (inputSlides.size() > 0) {
 
+            if (current == null) current = getFirstSlide(inputSlides);
+
+            inputSlides.remove(current);
             slideshow.add(current);
 
             Integer bestScore = 0;
@@ -43,7 +46,9 @@ public class LfProcessor {
                         bestNext = candidateNext;
                         bestScore = score;
                     }
+                    if (score >= current.getTags().size()) break;
                 }
+                if (bestScore >= current.getTags().size()) break;
             }
             current = bestNext;
         }
@@ -55,8 +60,7 @@ public class LfProcessor {
         return slides.stream().filter(slide -> !slide.getImages().contains(image)).collect(Collectors.toList());
     }
 
-    private LfSlide getFirstSlide(Map<String, List<LfSlide>> map) {
-        List<LfSlide> firstList = (List<LfSlide>) map.values().toArray()[0];
-        return firstList.get(0);
+    private LfSlide getFirstSlide(List<LfSlide> slides) {
+        return slides.get(0);
     }
 }
