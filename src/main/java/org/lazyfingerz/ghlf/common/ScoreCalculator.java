@@ -6,6 +6,14 @@ import java.util.List;
 
 public class ScoreCalculator {
 
+    public int getScore(List<LfSlide> slides){
+        int score = 0;
+        for(int i=0; i<slides.size()-2; i++){
+            score += getScore(slides.get(i), slides.get(i + 1));
+        }
+        return score;
+    }
+
     public int getScore(LfSlide s1, LfSlide s2){
         List<String> tags1 = s1.getTags();
         List<String> tags2 = s2.getTags();
