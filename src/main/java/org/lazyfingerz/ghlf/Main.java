@@ -18,7 +18,7 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String filename = A;
+        String filename = E;
 
         List<LfImage> images = new LfReader().read(filename);
         List<LfSlide> slides = new DemoSlider().createSlides(images);
