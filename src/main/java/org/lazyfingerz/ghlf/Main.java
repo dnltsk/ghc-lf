@@ -10,10 +10,19 @@ import java.util.List;
 
 public class Main {
 
-	public static void main(String[] args) throws IOException {
-		List<LfImage> images = new LfReader().read("a_example.txt");
-		List<LfSlide> slides = new DemoSlider().createSlides(images);
-		new LfWriter().write(slides);
-	}
+    private final static String A = "a_example.txt";
+    private final static String B = "b_lovely_landscapes.txt";
+    private final static String C = "c_memorable_moments.txt";
+    private final static String D = "d_pet_pictures.txt";
+    private final static String E = "e_shiny_selfies.txt";
+
+    public static void main(String[] args) throws IOException {
+
+        String filename = A;
+
+        List<LfImage> images = new LfReader().read(filename);
+        List<LfSlide> slides = new DemoSlider().createSlides(images);
+        new LfWriter().write(slides, filename);
+    }
 
 }
