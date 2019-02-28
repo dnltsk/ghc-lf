@@ -4,12 +4,9 @@ import org.lazyfingerz.ghlf.common.LfReader;
 import org.lazyfingerz.ghlf.common.LfWriter;
 import org.lazyfingerz.ghlf.model.LfImage;
 import org.lazyfingerz.ghlf.model.LfSlide;
-import org.lazyfingerz.ghlf.sort_by_list.SimpleSlider;
-import org.lazyfingerz.ghlf.sort_by_tags.SortByTags;
 
 import java.io.IOException;
 import java.util.List;
-import java.util.Map;
 
 public class Main {
 
@@ -21,12 +18,14 @@ public class Main {
 
     public static void main(String[] args) throws IOException {
 
-        String filename = A;
+        String filename = E;
 
-        List<LfImage> images = new LfReader().read(filename);
-        List<LfSlide> slides = new SimpleSlider().createAllPossibleSlides(images);
-        Map<String, List<LfSlide>> tagMap = new SortByTags().sortByTags(slides);
-        new LfWriter().write(slides, filename);
+        for (int i = 0; i < 1000; i++) {
+            System.out.println("processing.. "+i);
+            List<LfImage> images = new LfReader().read(filename);
+            List<LfSlide> slides = new DemoSlider().createSlides(images);
+            new LfWriter().write(slides, filename);
+        }
     }
 
 }

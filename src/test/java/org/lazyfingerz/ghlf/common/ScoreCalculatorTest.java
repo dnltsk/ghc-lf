@@ -15,6 +15,7 @@ public class ScoreCalculatorTest {
 
     @Test
     public void test(){
+
         LfSlide s1 = new LfSlide(Arrays.asList(new LfImage(0, H, 4, Arrays.asList("a", "c", "1", "2"))));
         LfSlide s2 = new LfSlide(Arrays.asList(new LfImage(0, H, 4, Arrays.asList("b", "c", "d", "e"))));
         // only "c" id in both!
