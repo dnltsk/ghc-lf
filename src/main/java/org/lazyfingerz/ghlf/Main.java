@@ -4,6 +4,7 @@ import org.lazyfingerz.ghlf.common.LfReader;
 import org.lazyfingerz.ghlf.common.LfWriter;
 import org.lazyfingerz.ghlf.model.LfImage;
 import org.lazyfingerz.ghlf.model.LfSlide;
+import org.lazyfingerz.ghlf.sort_by_list.SimpleSlider;
 
 import java.io.IOException;
 import java.util.List;
@@ -21,7 +22,7 @@ public class Main {
         String filename = E;
 
         List<LfImage> images = new LfReader().read(filename);
-        List<LfSlide> slides = new DemoSlider().createSlides(images);
+        List<LfSlide> slides = new SimpleSlider().createAllPossibleSlides(images);
         new LfWriter().write(slides, filename);
     }
 
