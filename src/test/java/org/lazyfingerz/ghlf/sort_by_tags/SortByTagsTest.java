@@ -18,10 +18,10 @@ public class SortByTagsTest {
 
     @Test
     public void test() {
-        LfSlide s1 = new LfSlide(Arrays.asList(new LfImage(0, H, Arrays.asList("a", "b", "c", "d"))));
-        LfSlide s2 = new LfSlide(Arrays.asList(new LfImage(0, H, Arrays.asList("b", "c", "d", "1"))));
-        LfSlide s3 = new LfSlide(Arrays.asList(new LfImage(0, H, Arrays.asList("c", "d", "1", "2"))));
-        LfSlide s4 = new LfSlide(Arrays.asList(new LfImage(0, H, Arrays.asList("d", "1", "2", "3"))));
+        LfSlide s1 = new LfSlide(Arrays.asList(new LfImage(0, H, 4,Arrays.asList("a", "b", "c", "d"))));
+        LfSlide s2 = new LfSlide(Arrays.asList(new LfImage(1, H, 4, Arrays.asList("b", "c", "d", "1"))));
+        LfSlide s3 = new LfSlide(Arrays.asList(new LfImage(2, H, 4, Arrays.asList("c", "d", "1", "2"))));
+        LfSlide s4 = new LfSlide(Arrays.asList(new LfImage(3, H, 4, Arrays.asList("d", "1", "2", "3"))));
 
         Map<String, List<LfSlide>> map = sortByTags.sortByTags(Arrays.asList(s1, s2, s3, s4));
 
