@@ -10,6 +10,7 @@ import java.util.List;
 @Value
 public class LfImage {
 
+    private int index;
     private Arrangement arrangement;
     private List<String> tags;
 

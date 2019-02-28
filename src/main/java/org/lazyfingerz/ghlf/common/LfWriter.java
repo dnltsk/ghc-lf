@@ -6,6 +6,6 @@ import java.util.List;
 
 public class LfWriter {
     public void write(List<LfSlide> slides) {
-        System.out.println(slides);
+
     }
 }
