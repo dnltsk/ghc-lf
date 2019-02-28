@@ -21,14 +21,15 @@ public class SimpleSlider {
                 return new LfSlide(Collections.singletonList(image));
             }).collect(Collectors.toList());
 
+        images = images.stream().filter(i -> i.getArrangement().equals(V)).collect(Collectors.toList());
+
         // vertical: 2 images -> 1 slide. add all possibilities
         for (int i = 0; i < images.size(); i++) {
             for (int j = i + 1; j < images.size(); j++) {
-                if (images.get(i) != images.get(j) && images.get(i).getArrangement() == V && images.get(j).getArrangement() == V) {
-                    slides.add(new LfSlide(Arrays.asList(images.get(i), images.get(j))));
-                }
+                slides.add(new LfSlide(Arrays.asList(images.get(i), images.get(j))));
             }
         }
+
         return slides;
     }
 
