@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class SortByTags {
 
-    public Map<String, List<LfSlide>> SortByTags(List<LfSlide> slides) {
+    public Map<String, List<LfSlide>> sortByTags(List<LfSlide> slides) {
         Map<String, List<LfSlide>> map = new HashMap<>();
 
         slides.forEach(slide -> slide.getTags()
