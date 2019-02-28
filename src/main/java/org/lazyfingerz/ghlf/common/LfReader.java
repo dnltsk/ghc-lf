@@ -30,10 +30,13 @@ public class LfReader {
     private LfImage parseImage(String line, int imageIndex) {
         List<String> elements = new LinkedList(Arrays.asList((line.split(" "))));
         Arrangement arrangement = Arrangement.valueOf(elements.get(0));
+        int numberOfTags = Integer.parseInt(elements.get(1));
+        elements.remove(0);
         elements.remove(0);
         LfImage image = new LfImage(
             imageIndex,
             arrangement,
+            numberOfTags,
             elements
         );
         return image;

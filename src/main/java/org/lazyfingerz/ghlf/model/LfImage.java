@@ -12,6 +12,7 @@ public class LfImage {
 
     private int index;
     private Arrangement arrangement;
+    private int numberOfTags;
     private List<String> tags;
 
 }
