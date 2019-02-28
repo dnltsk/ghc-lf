@@ -28,7 +28,7 @@ public class Main {
         List<LfImage> images = new LfReader().read(filename);
         List<LfSlide> slides = new SimpleSlider().createAllPossibleSlides(images);
         Map<String, List<LfSlide>> tagMap = new SortByTags().sortByTags(slides);
-        slides = new LfProcessor().process(tagMap);
+        //slides = new LfProcessor().process(tagMap); //use with care
         new LfWriter().write(slides, filename);
     }
 
